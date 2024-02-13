@@ -3,6 +3,7 @@ import jakarta.persistence.*;
 
 
 import java.io.Serializable;
+import java.util.Set;
 
 
 @Entity
@@ -15,5 +16,11 @@ public class Registration implements Serializable {
 
     @Column(name = "numWeek")
     private int numWeek;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "registration")
+    private Set<Skier> skiersList;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    Course course;
 
 }

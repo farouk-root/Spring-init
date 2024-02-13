@@ -3,6 +3,7 @@ package tn.esprit.intispring.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "course")
@@ -25,6 +26,9 @@ public class Course implements Serializable {
 
     @Column(name = "timeSlot")
     private String timeSlot;
+
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "course")
+    private Set<Registration> registrationsList;
 
 
 }

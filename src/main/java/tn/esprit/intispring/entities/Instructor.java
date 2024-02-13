@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "instructor")
@@ -22,5 +23,8 @@ public class Instructor implements Serializable {
     @Column(name = "dateofHire")
     @Temporal(TemporalType.DATE)
     private Date dateofHire;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private Set<Course> coursesList;
 
 }

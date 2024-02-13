@@ -3,6 +3,7 @@ package tn.esprit.intispring.entities;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Table(name = "piste")
@@ -24,4 +25,6 @@ public class Piste implements Serializable {
     @Column(name = "slope")
     private int slope;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Skier> skiersList;
 }
